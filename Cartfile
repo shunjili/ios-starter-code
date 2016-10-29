@@ -1,0 +1,4 @@
+github "rs/SDWebImage"
+github "Alamofire/Alamofire" ~> 4.0
+github "robb/Cartography" "master"
+github "Hearst-DD/ObjectMapper" ~> 2.2

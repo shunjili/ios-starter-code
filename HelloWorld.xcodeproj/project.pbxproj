@@ -9,11 +9,17 @@
 /* Begin PBXBuildFile section */
 		33ED03231DC491B900BCEC4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ED03221DC491B900BCEC4A /* AppDelegate.swift */; };
 		33ED03251DC491B900BCEC4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ED03241DC491B900BCEC4A /* ViewController.swift */; };
-		33ED03281DC491B900BCEC4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33ED03261DC491B900BCEC4A /* Main.storyboard */; };
 		33ED032A1DC491B900BCEC4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33ED03291DC491B900BCEC4A /* Assets.xcassets */; };
-		33ED032D1DC491B900BCEC4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33ED032B1DC491B900BCEC4A /* LaunchScreen.storyboard */; };
 		33ED03381DC491B900BCEC4A /* HelloWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ED03371DC491B900BCEC4A /* HelloWorldTests.swift */; };
 		33ED03431DC491B900BCEC4A /* HelloWorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ED03421DC491B900BCEC4A /* HelloWorldUITests.swift */; };
+		33ED03541DC4944000BCEC4A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33ED03501DC4944000BCEC4A /* Alamofire.framework */; };
+		33ED03551DC4944000BCEC4A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33ED03501DC4944000BCEC4A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		33ED03561DC4944000BCEC4A /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33ED03511DC4944000BCEC4A /* Cartography.framework */; };
+		33ED03571DC4944000BCEC4A /* Cartography.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33ED03511DC4944000BCEC4A /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		33ED03581DC4944000BCEC4A /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33ED03521DC4944000BCEC4A /* ObjectMapper.framework */; };
+		33ED03591DC4944000BCEC4A /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33ED03521DC4944000BCEC4A /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		33ED035A1DC4944000BCEC4A /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33ED03531DC4944000BCEC4A /* WebImage.framework */; };
+		33ED035B1DC4944000BCEC4A /* WebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33ED03531DC4944000BCEC4A /* WebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,13 +39,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		33ED035C1DC4944000BCEC4A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				33ED03591DC4944000BCEC4A /* ObjectMapper.framework in Embed Frameworks */,
+				33ED03551DC4944000BCEC4A /* Alamofire.framework in Embed Frameworks */,
+				33ED03571DC4944000BCEC4A /* Cartography.framework in Embed Frameworks */,
+				33ED035B1DC4944000BCEC4A /* WebImage.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		33ED031F1DC491B900BCEC4A /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33ED03221DC491B900BCEC4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33ED03241DC491B900BCEC4A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		33ED03271DC491B900BCEC4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		33ED03291DC491B900BCEC4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		33ED032C1DC491B900BCEC4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33ED032E1DC491B900BCEC4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33ED03331DC491B900BCEC4A /* HelloWorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloWorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33ED03371DC491B900BCEC4A /* HelloWorldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldTests.swift; sourceTree = "<group>"; };
@@ -47,6 +68,10 @@
 		33ED033E1DC491B900BCEC4A /* HelloWorldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloWorldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33ED03421DC491B900BCEC4A /* HelloWorldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldUITests.swift; sourceTree = "<group>"; };
 		33ED03441DC491B900BCEC4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33ED03501DC4944000BCEC4A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		33ED03511DC4944000BCEC4A /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = ../Carthage/Build/iOS/Cartography.framework; sourceTree = "<group>"; };
+		33ED03521DC4944000BCEC4A /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = ../Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		33ED03531DC4944000BCEC4A /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = ../Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +79,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33ED03581DC4944000BCEC4A /* ObjectMapper.framework in Frameworks */,
+				33ED03541DC4944000BCEC4A /* Alamofire.framework in Frameworks */,
+				33ED03561DC4944000BCEC4A /* Cartography.framework in Frameworks */,
+				33ED035A1DC4944000BCEC4A /* WebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,11 +126,10 @@
 		33ED03211DC491B900BCEC4A /* HelloWorld */ = {
 			isa = PBXGroup;
 			children = (
+				33ED035D1DC4953E00BCEC4A /* Frameworks */,
 				33ED03221DC491B900BCEC4A /* AppDelegate.swift */,
 				33ED03241DC491B900BCEC4A /* ViewController.swift */,
-				33ED03261DC491B900BCEC4A /* Main.storyboard */,
 				33ED03291DC491B900BCEC4A /* Assets.xcassets */,
-				33ED032B1DC491B900BCEC4A /* LaunchScreen.storyboard */,
 				33ED032E1DC491B900BCEC4A /* Info.plist */,
 			);
 			path = HelloWorld;
@@ -125,6 +153,17 @@
 			path = HelloWorldUITests;
 			sourceTree = "<group>";
 		};
+		33ED035D1DC4953E00BCEC4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				33ED03501DC4944000BCEC4A /* Alamofire.framework */,
+				33ED03511DC4944000BCEC4A /* Cartography.framework */,
+				33ED03521DC4944000BCEC4A /* ObjectMapper.framework */,
+				33ED03531DC4944000BCEC4A /* WebImage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +174,7 @@
 				33ED031B1DC491B900BCEC4A /* Sources */,
 				33ED031C1DC491B900BCEC4A /* Frameworks */,
 				33ED031D1DC491B900BCEC4A /* Resources */,
+				33ED035C1DC4944000BCEC4A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -232,9 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33ED032D1DC491B900BCEC4A /* LaunchScreen.storyboard in Resources */,
 				33ED032A1DC491B900BCEC4A /* Assets.xcassets in Resources */,
-				33ED03281DC491B900BCEC4A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,25 +332,6 @@
 			targetProxy = 33ED033F1DC491B900BCEC4A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		33ED03261DC491B900BCEC4A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				33ED03271DC491B900BCEC4A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		33ED032B1DC491B900BCEC4A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				33ED032C1DC491B900BCEC4A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		33ED03451DC491B900BCEC4A /* Debug */ = {
@@ -412,6 +431,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HelloWorld/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.airbnb.HelloWorld;
@@ -424,6 +447,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HelloWorld/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.airbnb.HelloWorld;
@@ -505,6 +532,7 @@
 				33ED03491DC491B900BCEC4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33ED034A1DC491B900BCEC4A /* Build configuration list for PBXNativeTarget "HelloWorldTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +541,7 @@
 				33ED034C1DC491B900BCEC4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33ED034D1DC491B900BCEC4A /* Build configuration list for PBXNativeTarget "HelloWorldUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +550,7 @@
 				33ED034F1DC491B900BCEC4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

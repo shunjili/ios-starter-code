@@ -1,0 +1,4 @@
+github "Alamofire/Alamofire" "4.0.1"
+github "robb/Cartography" "5f84cab0530dc4a9e05ef5b76cbd7a3efd1de5ff"
+github "Hearst-DD/ObjectMapper" "2.2.0"
+github "rs/SDWebImage" "3.8.2"
