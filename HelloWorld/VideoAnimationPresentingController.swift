@@ -17,23 +17,18 @@ class VideoAnimationPresentingController: NSObject, UIViewControllerAnimatedTran
   }
 
   func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-    guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) ,
-      let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
+    guard let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
         return
     }
 
     let mapVC = toVC as! MapViewController
     let container = transitionContext.containerView
 
-    let originalFrame = container.bounds
 
-    guard let snapShot = fromVC.view.snapshotView(afterScreenUpdates: true) else { return }
     guard let _ = toVC.view.snapshotView(afterScreenUpdates: true) else { return }
-    snapShot.frame = originalFrame
-    snapShot.layer.masksToBounds = true
+
 
     container.addSubview(toVC.view)
-    container.addSubview(snapShot)
 
     mapVC.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
     mapVC.collectionView.setNeedsLayout()
@@ -41,14 +36,12 @@ class VideoAnimationPresentingController: NSObject, UIViewControllerAnimatedTran
     let destinationFrame = mapVC.itemFrameForIndexPath(indexPath: self.indexPath)
 
     let duration = transitionDuration(using: transitionContext)
-
-    mapVC.collectionView.transform = transformFromRect(from: destinationFrame, toRect: container.bounds)
-    UIView.animate(withDuration: duration, animations: { 
-      snapShot.transform = transformFromRect(from: originalFrame, toRect: destinationFrame)
-      snapShot.alpha = 0.0
+    var zoomTransform =  transformFromRect(from: destinationFrame, toRect: container.bounds)
+    zoomTransform.tx = zoomTransform.tx * zoomTransform.a
+    mapVC.collectionView.transform = zoomTransform
+    UIView.animate(withDuration: duration, animations: {
       mapVC.collectionView.transform = CGAffineTransform.identity
     }) { completed in
-      snapShot.removeFromSuperview()
       transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
     }
 
