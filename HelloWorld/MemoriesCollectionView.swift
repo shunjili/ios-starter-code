@@ -9,9 +9,6 @@
 import UIKit
 
 class MemoriesCollectionView: UICollectionView {
-  
-  override func layoutSubviews() {
-    super.layoutSubviews()
-  }
+
 
 }

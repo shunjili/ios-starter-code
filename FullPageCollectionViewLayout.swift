@@ -14,6 +14,10 @@ class FullPageCollectionViewLayout: UICollectionViewFlowLayout {
     scrollDirection = .horizontal
     minimumLineSpacing = 10
   }
+
+  override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+    return true
+  }
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")

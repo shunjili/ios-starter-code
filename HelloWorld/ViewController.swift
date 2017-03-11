@@ -35,7 +35,7 @@ class ViewController: UIViewController {
   fileprivate var fullPageLayout: FullPageCollectionViewLayout!
   private var initialLayout: Bool = false
   private var heightBeforeTransition: CGFloat?
-  private var contentOffsetBeforeTransition: CGPoint?
+  private var currentItemIndex: Int = 0
   
   private func setUpCollectionView() {
     view.addSubview(collectionView)
@@ -54,10 +54,10 @@ class ViewController: UIViewController {
     switch recognizer.state {
     case .began:
       heightBeforeTransition = collectionView.frame.height
-      contentOffsetBeforeTransition = collectionView.contentOffset
+      currentItemIndex = Int(floor(collectionView.contentOffset.x/(fullPageLayout.itemSize.width + fullPageLayout.minimumLineSpacing)))
     case .changed:
       guard let heightBeforeTransition = heightBeforeTransition else { return }
-      guard let contentOffsetBeforeTransition = contentOffsetBeforeTransition else { return }
+
       // calculate the new collection view frame
       let percentage = min(max(heightBeforeTransition * recognizer.scale / view.bounds.height, 0.3), 1)
       var collectionViewFrame = collectionView.frame
@@ -70,8 +70,7 @@ class ViewController: UIViewController {
       
       collectionView.frame = collectionViewFrame
       collectionView.frame.origin.y = view.bounds.height - collectionView.frame.height
-      collectionView.contentOffset.x = contentOffsetBeforeTransition.x * percentage
-      fullPageLayout.invalidateLayout()
+      collectionView.contentOffset.x = (fullPageLayout.itemSize.width + fullPageLayout.minimumLineSpacing) * CGFloat(currentItemIndex)
     default: break
     }
   }
@@ -94,7 +93,8 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegate {
   
   func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-    let index = floor((scrollView.contentOffset.x + view.bounds.width/2) / (view.bounds.width + fullPageLayout.minimumLineSpacing))
+    guard scrollView.frame.size == view.bounds.size else { return }
+    let index = floor((scrollView.contentOffset.x + view.bounds.width/2 + velocity.x * 200) / (view.bounds.width + fullPageLayout.minimumLineSpacing))
     targetContentOffset.pointee.x = index * (fullPageLayout.minimumLineSpacing + view.bounds.width)
   }
   
