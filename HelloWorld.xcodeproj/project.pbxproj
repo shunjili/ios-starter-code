@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		26DC31AB1E738F9A0000FC66 /* FullPageCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC31AA1E738F9A0000FC66 /* FullPageCollectionViewLayout.swift */; };
 		26DC31AD1E73EB110000FC66 /* MemoriesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC31AC1E73EB110000FC66 /* MemoriesCollectionView.swift */; };
+		338343C71E7402BB00F3F6BF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338343C61E7402BB00F3F6BF /* MapViewController.swift */; };
+		338343C91E745E3500F3F6BF /* VideoAnimationPresentingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338343C81E745E3500F3F6BF /* VideoAnimationPresentingController.swift */; };
+		338343CB1E74744400F3F6BF /* VideoAnimationDimissController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338343CA1E74744400F3F6BF /* VideoAnimationDimissController.swift */; };
 		33ED03231DC491B900BCEC4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ED03221DC491B900BCEC4A /* AppDelegate.swift */; };
 		33ED03251DC491B900BCEC4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ED03241DC491B900BCEC4A /* ViewController.swift */; };
 		33ED032A1DC491B900BCEC4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33ED03291DC491B900BCEC4A /* Assets.xcassets */; };
@@ -61,6 +64,9 @@
 /* Begin PBXFileReference section */
 		26DC31AA1E738F9A0000FC66 /* FullPageCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullPageCollectionViewLayout.swift; path = ../FullPageCollectionViewLayout.swift; sourceTree = "<group>"; };
 		26DC31AC1E73EB110000FC66 /* MemoriesCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoriesCollectionView.swift; sourceTree = "<group>"; };
+		338343C61E7402BB00F3F6BF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		338343C81E745E3500F3F6BF /* VideoAnimationPresentingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAnimationPresentingController.swift; sourceTree = "<group>"; };
+		338343CA1E74744400F3F6BF /* VideoAnimationDimissController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAnimationDimissController.swift; sourceTree = "<group>"; };
 		33ED031F1DC491B900BCEC4A /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33ED03221DC491B900BCEC4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33ED03241DC491B900BCEC4A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,9 +140,12 @@
 				33ED03221DC491B900BCEC4A /* AppDelegate.swift */,
 				26DC31AA1E738F9A0000FC66 /* FullPageCollectionViewLayout.swift */,
 				33ED03241DC491B900BCEC4A /* ViewController.swift */,
+				338343C61E7402BB00F3F6BF /* MapViewController.swift */,
 				33ED03291DC491B900BCEC4A /* Assets.xcassets */,
 				33ED032E1DC491B900BCEC4A /* Info.plist */,
 				26DC31AC1E73EB110000FC66 /* MemoriesCollectionView.swift */,
+				338343C81E745E3500F3F6BF /* VideoAnimationPresentingController.swift */,
+				338343CA1E74744400F3F6BF /* VideoAnimationDimissController.swift */,
 			);
 			path = HelloWorld;
 			sourceTree = "<group>";
@@ -234,7 +243,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = shunji_li;
 				TargetAttributes = {
 					33ED031E1DC491B900BCEC4A = {
@@ -304,9 +313,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				338343CB1E74744400F3F6BF /* VideoAnimationDimissController.swift in Sources */,
+				338343C91E745E3500F3F6BF /* VideoAnimationPresentingController.swift in Sources */,
 				26DC31AB1E738F9A0000FC66 /* FullPageCollectionViewLayout.swift in Sources */,
 				33ED03251DC491B900BCEC4A /* ViewController.swift in Sources */,
 				33ED03231DC491B900BCEC4A /* AppDelegate.swift in Sources */,
+				338343C71E7402BB00F3F6BF /* MapViewController.swift in Sources */,
 				26DC31AD1E73EB110000FC66 /* MemoriesCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +373,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -411,6 +424,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

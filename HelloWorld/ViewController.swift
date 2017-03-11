@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     collectionView = MemoriesCollectionView(frame: .zero, collectionViewLayout: fullPageLayout)
     
     setUpCollectionView()
-    setUpPanGestureRecognizer()
   }
   
   override func viewDidLayoutSubviews() {
@@ -31,12 +30,16 @@ class ViewController: UIViewController {
     }
   }
   
-  private var collectionView: UICollectionView!
-  fileprivate var fullPageLayout: FullPageCollectionViewLayout!
   private var initialLayout: Bool = false
   private var heightBeforeTransition: CGFloat?
   private var currentItemIndex: Int = 0
-  
+
+  fileprivate var fullPageLayout: FullPageCollectionViewLayout!
+  fileprivate var presentingAnimationController = VideoAnimationPresentingController()
+  fileprivate var dismissAnimationController = VideoAnimationDismissController()
+  fileprivate var collectionView: UICollectionView!
+  fileprivate var mapVC: MapViewController?
+
   private func setUpCollectionView() {
     view.addSubview(collectionView)
     collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -44,36 +47,7 @@ class ViewController: UIViewController {
     collectionView.delegate = self
     collectionView.clipsToBounds = true
   }
-  
-  private func setUpPanGestureRecognizer() {
-    let gestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(updateCollectionViewFrame))
-    view.addGestureRecognizer(gestureRecognizer)
-  }
-  
-  @objc private func updateCollectionViewFrame(recognizer : UIPinchGestureRecognizer) {
-    switch recognizer.state {
-    case .began:
-      heightBeforeTransition = collectionView.frame.height
-      currentItemIndex = Int(floor(collectionView.contentOffset.x/(fullPageLayout.itemSize.width + fullPageLayout.minimumLineSpacing)))
-    case .changed:
-      guard let heightBeforeTransition = heightBeforeTransition else { return }
 
-      // calculate the new collection view frame
-      let percentage = min(max(heightBeforeTransition * recognizer.scale / view.bounds.height, 0.3), 1)
-      var collectionViewFrame = collectionView.frame
-      collectionViewFrame.size.height = view.bounds.height * percentage
-      
-      // calcualte the new item size at the current height
-      let newItemHeight = collectionViewFrame.height - 30 * (1-percentage)/0.7
-      let newItemWidth = view.bounds.width - (view.bounds.width - 100) * (1 - percentage)/0.7
-      fullPageLayout.itemSize = CGSize(width: newItemWidth, height: newItemHeight)
-      
-      collectionView.frame = collectionViewFrame
-      collectionView.frame.origin.y = view.bounds.height - collectionView.frame.height
-      collectionView.contentOffset.x = (fullPageLayout.itemSize.width + fullPageLayout.minimumLineSpacing) * CGFloat(currentItemIndex)
-    default: break
-    }
-  }
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -99,8 +73,34 @@ extension ViewController: UICollectionViewDelegate {
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    print("selected me")
+    let mapVC = self.mapVC ?? MapViewController()
+    mapVC.delegate = self
+    presentingAnimationController.indexPath = indexPath
+    mapVC.modalPresentationStyle = .custom
+    mapVC.transitioningDelegate = self
+    self.present(mapVC, animated: true, completion: nil)
   }
 }
 
+extension ViewController: MapViewControllerDelegate {
+  func didSelectItem(at indexPath: IndexPath) {
+    self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+    self.presentingAnimationController.indexPath = indexPath
+    self.dismissAnimationController.indexPath = indexPath
+    self.view.setNeedsLayout()
+    self.view.layoutIfNeeded()
+  }
+}
+
+extension ViewController: UIViewControllerTransitioningDelegate {
+
+  func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    return presentingAnimationController
+  }
+
+  func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+
+    return dismissAnimationController
+  }
+}
 
