@@ -50,10 +50,12 @@ class ViewController: UIViewController {
       default:
         break
       }
+
     case .changed:
       guard let swipeHeightBeforeTouch = swipeHeightBeforeTouch else { return }
       swipeView.frame.size.height = min(max(swipeHeightBeforeTouch - gestureRecognizer.translation(in: view).y, SwipeView.ShrinkedHeight), self.view.bounds.height)
       swipeView.frame.origin.y = view.bounds.height - swipeView.frame.size.height
+
     case .ended:
       switch swipeView.transitionState {
       case .expanding(_, _):
@@ -107,7 +109,7 @@ class ViewController: UIViewController {
 
   private func shrinkSwipeViewToMinimum(completion: ((Void) -> Void)?) {
     let popAnimation = POPSpringAnimation(propertyNamed: kPOPViewFrame)
-    popAnimation?.springBounciness = 5
+    popAnimation?.springBounciness = 10
     var finalFrame = self.swipeView.frame
     finalFrame.size.height = SwipeView.ShrinkedHeight
     finalFrame.origin.y = view.bounds.height - finalFrame.size.height
@@ -122,7 +124,7 @@ class ViewController: UIViewController {
 
   fileprivate func expandSwipeViewToMaximum(completion: ((Void) -> Void)?) {
     let popAnimation = POPSpringAnimation(propertyNamed: kPOPViewFrame)
-    popAnimation?.springBounciness = 5
+    popAnimation?.springBounciness = 10
     var finalFrame = self.swipeView.frame
     finalFrame.size.height = self.view.bounds.height
     finalFrame.origin.y = 0
@@ -131,11 +133,7 @@ class ViewController: UIViewController {
       completion?()
     }
 
-//    let pagingAnimation = POPBasicAnimation(propertyNamed: kPOPScrollViewContentOffset)
-//    let targetX = CGFloat(index) * swipeView.bounds.width
-//    pagingAnimation?.toValue = NSValue(cgPoint: CGPoint(x: targetX, y: 0))
     self.swipeView.pop_add(popAnimation, forKey: "size")
-//    self.swipeView.pop_add(pagingAnimation, forKey: "paging")
   }
 
   fileprivate func swipeViewDidExpand() {
@@ -169,10 +167,6 @@ extension ViewController: UIGestureRecognizerDelegate, SwipeViewDelegate {
     self.expandSwipeViewToMaximum() { [weak self] _ in
       self?.swipeViewDidExpand()
     }
-  }
-
-  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-    return true
   }
 
   func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
