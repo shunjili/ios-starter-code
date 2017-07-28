@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		33ED03231DC491B900BCEC4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ED03221DC491B900BCEC4A /* AppDelegate.swift */; };
-		33ED03251DC491B900BCEC4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ED03241DC491B900BCEC4A /* ViewController.swift */; };
+		33ED03251DC491B900BCEC4A /* QRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ED03241DC491B900BCEC4A /* QRScanViewController.swift */; };
 		33ED032A1DC491B900BCEC4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33ED03291DC491B900BCEC4A /* Assets.xcassets */; };
 		33ED03381DC491B900BCEC4A /* HelloWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ED03371DC491B900BCEC4A /* HelloWorldTests.swift */; };
 		33ED03431DC491B900BCEC4A /* HelloWorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ED03421DC491B900BCEC4A /* HelloWorldUITests.swift */; };
@@ -59,7 +59,7 @@
 /* Begin PBXFileReference section */
 		33ED031F1DC491B900BCEC4A /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33ED03221DC491B900BCEC4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		33ED03241DC491B900BCEC4A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		33ED03241DC491B900BCEC4A /* QRScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanViewController.swift; sourceTree = "<group>"; };
 		33ED03291DC491B900BCEC4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33ED032E1DC491B900BCEC4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33ED03331DC491B900BCEC4A /* HelloWorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloWorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,7 +128,7 @@
 			children = (
 				33ED035D1DC4953E00BCEC4A /* Frameworks */,
 				33ED03221DC491B900BCEC4A /* AppDelegate.swift */,
-				33ED03241DC491B900BCEC4A /* ViewController.swift */,
+				33ED03241DC491B900BCEC4A /* QRScanViewController.swift */,
 				33ED03291DC491B900BCEC4A /* Assets.xcassets */,
 				33ED032E1DC491B900BCEC4A /* Info.plist */,
 			);
@@ -233,6 +233,7 @@
 				TargetAttributes = {
 					33ED031E1DC491B900BCEC4A = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 5LL7P8E8RA;
 						ProvisioningStyle = Automatic;
 					};
 					33ED03321DC491B900BCEC4A = {
@@ -297,7 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33ED03251DC491B900BCEC4A /* ViewController.swift in Sources */,
+				33ED03251DC491B900BCEC4A /* QRScanViewController.swift in Sources */,
 				33ED03231DC491B900BCEC4A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5LL7P8E8RA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -447,6 +449,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5LL7P8E8RA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
